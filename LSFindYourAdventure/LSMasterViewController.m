@@ -51,13 +51,15 @@
       loc.longitude  = [[adventure objectForKey:@"longitude"] doubleValue];
       ////    
       ////    // create an instance of bnrmappoint
-      NSString *subtitle = [NSString stringWithFormat:@"%@, %@   $%@",
-                            [adventure objectForKey:@"city"], [adventure objectForKey:@"state"], [adventure objectForKey:@"price"]];
+      NSString *subtitle = [NSString stringWithFormat:@"%@, %@   $%@ %@",
+                            [adventure objectForKey:@"city"], [adventure objectForKey:@"state"], [adventure objectForKey:@"price"], [adventure objectForKey:@"sold_out"]];
       LSMapPoint *mp = [[LSMapPoint alloc] initWithCoordinate:loc title:[adventure objectForKey:@"title"] subtitle:subtitle];
+      mp.soldout = [[adventure objectForKey:@"sold_out"] boolValue];
       
       [_adventures addObject:mp];
     }
     [self.detailViewController.worldView addAnnotations:_adventures];
+    self.detailViewController.allAdventures = [NSArray arrayWithArray:_adventures];
   }
   
   [self.tableView reloadData];
@@ -168,6 +170,8 @@
     LSMapPoint *coord = [_adventures objectAtIndex:indexPath.row];
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord.coordinate, 100000, 100000);
     [self.detailViewController.worldView setRegion:region animated:YES];
+    
+    NSLog(@"defailt view controller has %@", self.detailViewController.allAdventures);
     [self.detailViewController.worldView selectAnnotation:coord animated:YES];
   }
 }

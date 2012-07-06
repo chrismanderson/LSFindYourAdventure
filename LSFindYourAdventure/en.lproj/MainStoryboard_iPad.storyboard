@@ -32,8 +32,24 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </mapView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="53"/>
+                    <navigationItem key="navigationItem" title="Detail" id="53">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="VmC-sL-Uvg">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="oJW-qz-hMs">
+                                <rect key="frame" x="502" y="7" width="194" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Active"/>
+                                    <segment title="Sold Out"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setStatusFilter:" destination="4" eventType="valueChanged" id="PKe-eR-2UF"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="statusSelector" destination="oJW-qz-hMs" id="HHF-a9-n8r"/>
                         <outlet property="worldView" destination="PzQ-0P-nfP" id="HyP-HB-cxF"/>
                     </connections>
                 </viewController>
@@ -125,7 +141,9 @@
         <class className="LSDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LSDetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="setStatusFilter:"/>
                 <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="statusSelector" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="worldView" candidateClass="MKMapView"/>
             </relationships>
         </class>

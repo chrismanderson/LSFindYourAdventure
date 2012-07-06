@@ -7,6 +7,8 @@
 //
 
 #import "LSDetailViewController.h"
+#import "LSMasterViewController.h"
+#import "LSMapPoint.h"
 
 @interface LSDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -15,6 +17,8 @@
 
 @implementation LSDetailViewController
 
+@synthesize allAdventures = _allAdventures;
+@synthesize statusSelector = _statusSelector;
 @synthesize detailItem = _detailItem;
 @synthesize worldView = _worldView;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
@@ -38,11 +42,60 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
+  
 
   if (self.detailItem) {
       self.detailDescriptionLabel.text = [self.detailItem description];
   }
+}
+
+- (IBAction)setStatusFilter:(id)sender
+{
+  NSLog(@"%d", _statusSelector.selectedSegmentIndex);
+   NSLog(@"all array %@", _allAdventures);
+  if (_statusSelector.selectedSegmentIndex == 1) {
+    [self setActive];
+  } else if (_statusSelector.selectedSegmentIndex == 2) {
+    [self setSoldout];
+  } else {
+    [_worldView removeAnnotations:_worldView.annotations];
+    [_worldView addAnnotations:_allAdventures];
+
+  }
+}
+
+
+- (void)setSoldout
+{
+  NSLog(@"dlf %@", _worldView.annotations);
+  NSLog(@"all array %@", _allAdventures);
+  
+  NSMutableArray *activeAnnotations = [[NSMutableArray alloc] init];
+  
+  for (LSMapPoint *annotation in _allAdventures) {
+    if (!annotation.soldout) {
+      [activeAnnotations addObject:annotation];
+    }
+  }
+  
+  [_worldView removeAnnotations:_worldView.annotations];
+  [_worldView addAnnotations:activeAnnotations];
+}
+
+- (void)setActive
+{
+  NSLog(@"dlf %@", _worldView.annotations);
+  
+  NSMutableArray *activeAnnotations = [[NSMutableArray alloc] init];
+  
+  for (LSMapPoint *annotation in _allAdventures) {
+    if (annotation.soldout) {
+      [activeAnnotations addObject:annotation];
+    }
+  }
+  
+  [_worldView removeAnnotations:_worldView.annotations];
+  [_worldView addAnnotations:activeAnnotations];
 }
 
 - (void)viewDidLoad

@@ -56,11 +56,12 @@
       LSMapPoint *mp = [[LSMapPoint alloc] initWithCoordinate:loc title:[adventure objectForKey:@"title"] subtitle:subtitle];
       
       [_adventures addObject:mp];
-      
     }
+    [self.detailViewController.worldView addAnnotations:_adventures];
   }
   
   [self.tableView reloadData];
+  
 }
 - (void)awakeFromNib
 {
@@ -162,10 +163,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSDate *object = [_adventures objectAtIndex:indexPath.row];
-        self.detailViewController.detailItem = object;
-    }
+  
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    LSMapPoint *coord = [_adventures objectAtIndex:indexPath.row];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord.coordinate, 100000, 100000);
+    [self.detailViewController.worldView setRegion:region animated:YES];
+    [self.detailViewController.worldView selectAnnotation:coord animated:YES];
+  }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

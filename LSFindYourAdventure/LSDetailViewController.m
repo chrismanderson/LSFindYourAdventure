@@ -16,6 +16,7 @@
 @implementation LSDetailViewController
 
 @synthesize detailItem = _detailItem;
+@synthesize worldView = _worldView;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
 

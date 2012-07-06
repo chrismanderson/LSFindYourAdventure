@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8375909B15A7341300BA8966 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8375909A15A7341300BA8966 /* UIKit.framework */; };
+		8375909D15A7341300BA8966 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8375909C15A7341300BA8966 /* Foundation.framework */; };
+		8375909F15A7341300BA8966 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8375909E15A7341300BA8966 /* CoreGraphics.framework */; };
+		837590A515A7341300BA8966 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 837590A315A7341300BA8966 /* InfoPlist.strings */; };
+		837590A715A7341300BA8966 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 837590A615A7341300BA8966 /* main.m */; };
+		837590AB15A7341300BA8966 /* LSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 837590AA15A7341300BA8966 /* LSAppDelegate.m */; };
+		837590AE15A7341300BA8966 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837590AC15A7341300BA8966 /* MainStoryboard_iPhone.storyboard */; };
+		837590B115A7341300BA8966 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837590AF15A7341300BA8966 /* MainStoryboard_iPad.storyboard */; };
+		837590B415A7341300BA8966 /* LSMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837590B315A7341300BA8966 /* LSMasterViewController.m */; };
+		837590B715A7341300BA8966 /* LSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837590B615A7341300BA8966 /* LSDetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8375909615A7341300BA8966 /* LSFindYourAdventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSFindYourAdventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8375909A15A7341300BA8966 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8375909C15A7341300BA8966 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8375909E15A7341300BA8966 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		837590A215A7341300BA8966 /* LSFindYourAdventure-Info.plist */ = {isa = PBXFileReference; path = "LSFindYourAdventure-Info.plist"; sourceTree = "<group>"; };
+		837590A415A7341300BA8966 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		837590A615A7341300BA8966 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		837590A815A7341300BA8966 /* LSFindYourAdventure-Prefix.pch */ = {isa = PBXFileReference; path = "LSFindYourAdventure-Prefix.pch"; sourceTree = "<group>"; };
+		837590A915A7341300BA8966 /* LSAppDelegate.h */ = {isa = PBXFileReference; path = LSAppDelegate.h; sourceTree = "<group>"; };
+		837590AA15A7341300BA8966 /* LSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSAppDelegate.m; sourceTree = "<group>"; };
+		837590AD15A7341300BA8966 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		837590B015A7341300BA8966 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		837590B215A7341300BA8966 /* LSMasterViewController.h */ = {isa = PBXFileReference; path = LSMasterViewController.h; sourceTree = "<group>"; };
+		837590B315A7341300BA8966 /* LSMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSMasterViewController.m; sourceTree = "<group>"; };
+		837590B515A7341300BA8966 /* LSDetailViewController.h */ = {isa = PBXFileReference; path = LSDetailViewController.h; sourceTree = "<group>"; };
+		837590B615A7341300BA8966 /* LSDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSDetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8375909315A7341300BA8966 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8375909B15A7341300BA8966 /* UIKit.framework in Frameworks */,
+				8375909D15A7341300BA8966 /* Foundation.framework in Frameworks */,
+				8375909F15A7341300BA8966 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8375908B15A7341300BA8966 = {
+			isa = PBXGroup;
+			children = (
+				837590A015A7341300BA8966 /* LSFindYourAdventure */,
+				8375909915A7341300BA8966 /* Frameworks */,
+				8375909715A7341300BA8966 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8375909715A7341300BA8966 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8375909615A7341300BA8966 /* LSFindYourAdventure.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8375909915A7341300BA8966 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8375909A15A7341300BA8966 /* UIKit.framework */,
+				8375909C15A7341300BA8966 /* Foundation.framework */,
+				8375909E15A7341300BA8966 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		837590A015A7341300BA8966 /* LSFindYourAdventure */ = {
+			isa = PBXGroup;
+			children = (
+				837590A915A7341300BA8966 /* LSAppDelegate.h */,
+				837590AA15A7341300BA8966 /* LSAppDelegate.m */,
+				837590AC15A7341300BA8966 /* MainStoryboard_iPhone.storyboard */,
+				837590AF15A7341300BA8966 /* MainStoryboard_iPad.storyboard */,
+				837590B215A7341300BA8966 /* LSMasterViewController.h */,
+				837590B315A7341300BA8966 /* LSMasterViewController.m */,
+				837590B515A7341300BA8966 /* LSDetailViewController.h */,
+				837590B615A7341300BA8966 /* LSDetailViewController.m */,
+				837590A115A7341300BA8966 /* Supporting Files */,
+			);
+			path = LSFindYourAdventure;
+			sourceTree = "<group>";
+		};
+		837590A115A7341300BA8966 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				837590A215A7341300BA8966 /* LSFindYourAdventure-Info.plist */,
+				837590A315A7341300BA8966 /* InfoPlist.strings */,
+				837590A615A7341300BA8966 /* main.m */,
+				837590A815A7341300BA8966 /* LSFindYourAdventure-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8375909515A7341300BA8966 /* LSFindYourAdventure */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 837590BA15A7341300BA8966 /* Build configuration list for PBXNativeTarget "LSFindYourAdventure" */;
+			buildPhases = (
+				8375909215A7341300BA8966 /* Sources */,
+				8375909315A7341300BA8966 /* Frameworks */,
+				8375909415A7341300BA8966 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LSFindYourAdventure;
+			productName = LSFindYourAdventure;
+			productReference = 8375909615A7341300BA8966 /* LSFindYourAdventure.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8375908D15A7341300BA8966 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LS;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "The Winston Group";
+			};
+			buildConfigurationList = 8375909015A7341300BA8966 /* Build configuration list for PBXProject "LSFindYourAdventure" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8375908B15A7341300BA8966;
+			productRefGroup = 8375909715A7341300BA8966 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8375909515A7341300BA8966 /* LSFindYourAdventure */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8375909415A7341300BA8966 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				837590A515A7341300BA8966 /* InfoPlist.strings in Resources */,
+				837590AE15A7341300BA8966 /* MainStoryboard_iPhone.storyboard in Resources */,
+				837590B115A7341300BA8966 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8375909215A7341300BA8966 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				837590A715A7341300BA8966 /* main.m in Sources */,
+				837590AB15A7341300BA8966 /* LSAppDelegate.m in Sources */,
+				837590B415A7341300BA8966 /* LSMasterViewController.m in Sources */,
+				837590B715A7341300BA8966 /* LSDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		837590A315A7341300BA8966 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				837590A415A7341300BA8966 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		837590AC15A7341300BA8966 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				837590AD15A7341300BA8966 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		837590AF15A7341300BA8966 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				837590B015A7341300BA8966 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		837590B815A7341300BA8966 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		837590B915A7341300BA8966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		837590BB15A7341300BA8966 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LSFindYourAdventure/LSFindYourAdventure-Prefix.pch";
+				INFOPLIST_FILE = "LSFindYourAdventure/LSFindYourAdventure-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		837590BC15A7341300BA8966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LSFindYourAdventure/LSFindYourAdventure-Prefix.pch";
+				INFOPLIST_FILE = "LSFindYourAdventure/LSFindYourAdventure-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8375909015A7341300BA8966 /* Build configuration list for PBXProject "LSFindYourAdventure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				837590B815A7341300BA8966 /* Debug */,
+				837590B915A7341300BA8966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		837590BA15A7341300BA8966 /* Build configuration list for PBXNativeTarget "LSFindYourAdventure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				837590BB15A7341300BA8966 /* Debug */,
+				837590BC15A7341300BA8966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8375908D15A7341300BA8966 /* Project object */;
+}

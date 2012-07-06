@@ -12,6 +12,12 @@
 
 @interface LSMasterViewController : UITableViewController
 
+- (void)fetchAdventures;
+- (void)storeAdventures;
+
+
 @property (strong, nonatomic) LSDetailViewController *detailViewController;
+@property (nonatomic, readwrite) NSMutableArray *adventures;
+@property (nonatomic, readwrite) NSMutableArray *adventuresJSON;
 
 @end

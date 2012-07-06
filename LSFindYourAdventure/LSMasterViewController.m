@@ -7,7 +7,7 @@
 //
 
 #import "LSMasterViewController.h"
-
+#import "LSMapPoint.h"
 #import "LSDetailViewController.h"
 
 @interface LSMasterViewController () {
@@ -18,7 +18,50 @@
 @implementation LSMasterViewController
 
 @synthesize detailViewController = _detailViewController;
+@synthesize adventures = _adventures;
+@synthesize adventuresJSON = _adventuresJSON;
 
+- (void)fetchAdventures
+{
+  {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+      NSData* data = [NSData dataWithContentsOfURL:
+                      [NSURL URLWithString: @"http://findyouradventure.herokuapp.com/api/v1/adventures.json"]];
+      NSError* error;
+      _adventuresJSON = [NSJSONSerialization JSONObjectWithData:data
+                                                        options:kNilOptions
+                                                          error:&error];
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [self storeAdventures];
+        [self.tableView reloadData];
+      });
+    });
+  }
+}
+
+- (void)storeAdventures
+{
+  for (id adventure in _adventuresJSON) {
+    NSLog(@"lat %@ %@", [adventure objectForKey:@"latitude"], [[adventure objectForKey:@"soldout"] class]);
+    NSLog(@"%@", adventure);
+    CLLocationCoordinate2D loc;
+    
+    if (![[adventure objectForKey:@"latitude"] isKindOfClass:[NSNull class]]) {
+      loc.latitude  = [[adventure objectForKey:@"latitude"] doubleValue];
+      loc.longitude  = [[adventure objectForKey:@"longitude"] doubleValue];
+      ////    
+      ////    // create an instance of bnrmappoint
+      NSString *subtitle = [NSString stringWithFormat:@"%@, %@   $%@",
+                            [adventure objectForKey:@"city"], [adventure objectForKey:@"state"], [adventure objectForKey:@"price"]];
+      LSMapPoint *mp = [[LSMapPoint alloc] initWithCoordinate:loc title:[adventure objectForKey:@"title"] subtitle:subtitle];
+      
+      [_adventures addObject:mp];
+      
+    }
+  }
+  
+  [self.tableView reloadData];
+}
 - (void)awakeFromNib
 {
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -37,6 +80,10 @@
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
   self.navigationItem.rightBarButtonItem = addButton;
   self.detailViewController = (LSDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+  
+  // Intializes your adventures array
+  _adventures = [[NSMutableArray alloc] init];
+  [self fetchAdventures];
 }
 
 - (void)viewDidUnload
@@ -73,32 +120,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return _objects.count;
+  return _adventures.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+  static NSString *CellIdentifier = @"AdventureCell";
+  
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+  }
 
-  NSDate *object = [_objects objectAtIndex:indexPath.row];
-  cell.textLabel.text = [object description];
-    return cell;
+  LSMapPoint *point = [_adventures objectAtIndex:indexPath.row];
+  cell.textLabel.text = [point title];
+  cell.detailTextLabel.text = [point subtitle];
+  return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
+    return NO;
 }
 
 /*
@@ -120,7 +163,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSDate *object = [_objects objectAtIndex:indexPath.row];
+        NSDate *object = [_adventures objectAtIndex:indexPath.row];
         self.detailViewController.detailItem = object;
     }
 }
@@ -129,8 +172,8 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = [_objects objectAtIndex:indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        LSMapPoint *point = [_adventures objectAtIndex:indexPath.row];
+        [[segue destinationViewController] setDetailItem:point];
     }
 }
 

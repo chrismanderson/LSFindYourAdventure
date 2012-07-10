@@ -1,0 +1,7 @@
+# LSFindYourAdventure
+
+iOS version of my [Google Maps/LivingSocial Adventures] (https://github.com/chrismanderson/ls_find_your_adventure) mashup for Hungry Academy. 
+
+It relies on the data from [FindYourAdventure](http://findyouradventure.herokuapp.com). Being hosted in Heroku, it make take a minute or so for the dynos to spin.
+
+App is currently iPad only.

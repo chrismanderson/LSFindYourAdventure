@@ -17,6 +17,9 @@
 		837590B115A7341300BA8966 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837590AF15A7341300BA8966 /* MainStoryboard_iPad.storyboard */; };
 		837590B415A7341300BA8966 /* LSMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837590B315A7341300BA8966 /* LSMasterViewController.m */; };
 		837590B715A7341300BA8966 /* LSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837590B615A7341300BA8966 /* LSDetailViewController.m */; };
+		837590BF15A7342F00BA8966 /* LSMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 837590BE15A7342F00BA8966 /* LSMapPoint.m */; };
+		837590C115A7344800BA8966 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837590C015A7344800BA8966 /* MapKit.framework */; };
+		837590C315A7344F00BA8966 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837590C215A7344F00BA8966 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,18 +27,22 @@
 		8375909A15A7341300BA8966 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8375909C15A7341300BA8966 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8375909E15A7341300BA8966 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		837590A215A7341300BA8966 /* LSFindYourAdventure-Info.plist */ = {isa = PBXFileReference; path = "LSFindYourAdventure-Info.plist"; sourceTree = "<group>"; };
+		837590A215A7341300BA8966 /* LSFindYourAdventure-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LSFindYourAdventure-Info.plist"; sourceTree = "<group>"; };
 		837590A415A7341300BA8966 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		837590A615A7341300BA8966 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		837590A815A7341300BA8966 /* LSFindYourAdventure-Prefix.pch */ = {isa = PBXFileReference; path = "LSFindYourAdventure-Prefix.pch"; sourceTree = "<group>"; };
-		837590A915A7341300BA8966 /* LSAppDelegate.h */ = {isa = PBXFileReference; path = LSAppDelegate.h; sourceTree = "<group>"; };
+		837590A815A7341300BA8966 /* LSFindYourAdventure-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LSFindYourAdventure-Prefix.pch"; sourceTree = "<group>"; };
+		837590A915A7341300BA8966 /* LSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSAppDelegate.h; sourceTree = "<group>"; };
 		837590AA15A7341300BA8966 /* LSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSAppDelegate.m; sourceTree = "<group>"; };
 		837590AD15A7341300BA8966 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		837590B015A7341300BA8966 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		837590B215A7341300BA8966 /* LSMasterViewController.h */ = {isa = PBXFileReference; path = LSMasterViewController.h; sourceTree = "<group>"; };
+		837590B215A7341300BA8966 /* LSMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSMasterViewController.h; sourceTree = "<group>"; };
 		837590B315A7341300BA8966 /* LSMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSMasterViewController.m; sourceTree = "<group>"; };
-		837590B515A7341300BA8966 /* LSDetailViewController.h */ = {isa = PBXFileReference; path = LSDetailViewController.h; sourceTree = "<group>"; };
+		837590B515A7341300BA8966 /* LSDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSDetailViewController.h; sourceTree = "<group>"; };
 		837590B615A7341300BA8966 /* LSDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSDetailViewController.m; sourceTree = "<group>"; };
+		837590BD15A7342F00BA8966 /* LSMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSMapPoint.h; sourceTree = "<group>"; };
+		837590BE15A7342F00BA8966 /* LSMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSMapPoint.m; sourceTree = "<group>"; };
+		837590C015A7344800BA8966 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		837590C215A7344F00BA8966 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				837590C315A7344F00BA8966 /* CoreLocation.framework in Frameworks */,
+				837590C115A7344800BA8966 /* MapKit.framework in Frameworks */,
 				8375909B15A7341300BA8966 /* UIKit.framework in Frameworks */,
 				8375909D15A7341300BA8966 /* Foundation.framework in Frameworks */,
 				8375909F15A7341300BA8966 /* CoreGraphics.framework in Frameworks */,
@@ -55,6 +64,8 @@
 		8375908B15A7341300BA8966 = {
 			isa = PBXGroup;
 			children = (
+				837590C215A7344F00BA8966 /* CoreLocation.framework */,
+				837590C015A7344800BA8966 /* MapKit.framework */,
 				837590A015A7341300BA8966 /* LSFindYourAdventure */,
 				8375909915A7341300BA8966 /* Frameworks */,
 				8375909715A7341300BA8966 /* Products */,
@@ -87,6 +98,8 @@
 				837590AC15A7341300BA8966 /* MainStoryboard_iPhone.storyboard */,
 				837590AF15A7341300BA8966 /* MainStoryboard_iPad.storyboard */,
 				837590B215A7341300BA8966 /* LSMasterViewController.h */,
+				837590BD15A7342F00BA8966 /* LSMapPoint.h */,
+				837590BE15A7342F00BA8966 /* LSMapPoint.m */,
 				837590B315A7341300BA8966 /* LSMasterViewController.m */,
 				837590B515A7341300BA8966 /* LSDetailViewController.h */,
 				837590B615A7341300BA8966 /* LSDetailViewController.m */,
@@ -175,6 +188,7 @@
 				837590AB15A7341300BA8966 /* LSAppDelegate.m in Sources */,
 				837590B415A7341300BA8966 /* LSMasterViewController.m in Sources */,
 				837590B715A7341300BA8966 /* LSDetailViewController.m in Sources */,
+				837590BF15A7342F00BA8966 /* LSMapPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,26 @@
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
 
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+  MKPinAnnotationView *aView = (MKPinAnnotationView *)[_worldView dequeueReusableAnnotationViewWithIdentifier:@"MapVC"];
+  if (!aView) {
+    aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MapVC"];
+
+    aView.canShowCallout = YES;
+    aView.animatesDrop = YES;
+    
+    aView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    // could put a rightCalloutAccessoryView here
+  }
+  
+  aView.annotation = annotation;
+  
+  [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
+  
+  return aView;
+}
+
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem
@@ -102,7 +122,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+  self.worldView.delegate = self;
   [self configureView];
+  
 }
 
 - (void)viewDidUnload

@@ -32,24 +32,8 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </mapView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="53">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="VmC-sL-Uvg">
-                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="oJW-qz-hMs">
-                                <rect key="frame" x="502" y="7" width="194" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="All"/>
-                                    <segment title="Active"/>
-                                    <segment title="Sold Out"/>
-                                </segments>
-                                <connections>
-                                    <action selector="setStatusFilter:" destination="4" eventType="valueChanged" id="PKe-eR-2UF"/>
-                                </connections>
-                            </segmentedControl>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Map" id="53"/>
                     <connections>
-                        <outlet property="statusSelector" destination="oJW-qz-hMs" id="HHF-a9-n8r"/>
                         <outlet property="worldView" destination="PzQ-0P-nfP" id="HyP-HB-cxF"/>
                     </connections>
                 </viewController>
@@ -72,11 +56,11 @@
             </objects>
             <point key="canvasLocation" x="-687" y="-630"/>
         </scene>
-        <!--Master View Controller - Master-->
+        <!--Master View Controller - Adventures-->
         <scene sceneID="24">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="" title="Master" clearsSelectionOnViewWillAppear="NO" id="19" customClass="LSMasterViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="" title="Adventures" clearsSelectionOnViewWillAppear="NO" id="19" customClass="LSMasterViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="20">
                         <rect key="frame" x="0.0" y="64" width="320" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +85,7 @@
                                             <rect key="frame" x="10" y="23" width="44" height="20"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                            <color key="textColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
@@ -116,10 +100,28 @@
                             <outlet property="delegate" destination="19" id="21"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="40"/>
+                    <navigationItem key="navigationItem" id="40">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Ler-1W-UCh">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="BSZ-QV-aOG">
+                                <rect key="frame" x="7" y="7" width="188" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Active"/>
+                                    <segment title="Sold out"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setStatusFilter:" destination="19" eventType="valueChanged" id="FQ1-Z4-olr"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="statusSelector" destination="BSZ-QV-aOG" id="ron-n2-o8u"/>
+                    </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="859" y="-631"/>
+            <point key="canvasLocation" x="781" y="-714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="50">
@@ -149,6 +151,10 @@
         </class>
         <class className="LSMasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LSMasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="setStatusFilter:"/>
+                <relationship kind="outlet" name="statusSelector" candidateClass="UISegmentedControl"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -19,8 +19,26 @@
 
 @synthesize detailViewController = _detailViewController;
 @synthesize adventures = _adventures;
+@synthesize allAdventures = _allAdventures;
 @synthesize adventuresJSON = _adventuresJSON;
+@synthesize statusSelector = _statusSelector;
+@synthesize cities = _cities;
 
+- (IBAction)setStatusFilter:(id)sender
+{
+  if (_statusSelector.selectedSegmentIndex == 1) {
+     [self setFilter:false];
+  } else if (_statusSelector.selectedSegmentIndex == 2) {
+    [self setFilter:true];
+  } else {
+    [_detailViewController.worldView removeAnnotations:_detailViewController.worldView.annotations];
+    [_detailViewController.worldView addAnnotations:_allAdventures];
+    [_adventures removeAllObjects];
+    [_adventures addObjectsFromArray:_allAdventures];
+    [self.tableView reloadData];
+    
+  }
+}
 - (void)fetchAdventures
 {
   {
@@ -39,19 +57,36 @@
   }
 }
 
+- (void)setFilter:(BOOL)soldout
+{
+  
+  [_adventures removeAllObjects];
+  
+  for (LSMapPoint *annotation in _allAdventures) {
+    if (annotation.soldout != soldout) {
+      [_adventures addObject:annotation];
+    }
+  }
+  
+  NSLog(@"_adventures are %@", _adventures);
+  [_detailViewController.worldView removeAnnotations:_detailViewController.worldView.annotations];
+  [_detailViewController.worldView addAnnotations:_adventures];
+  [self.tableView reloadData];
+}
+
+
 - (void)storeAdventures
 {
+  _cities = [[NSMutableArray alloc] init];
+  
   for (id adventure in _adventuresJSON) {
-    NSLog(@"lat %@ %@", [adventure objectForKey:@"latitude"], [[adventure objectForKey:@"soldout"] class]);
-    NSLog(@"%@", adventure);
     CLLocationCoordinate2D loc;
     
     if (![[adventure objectForKey:@"latitude"] isKindOfClass:[NSNull class]]) {
       loc.latitude  = [[adventure objectForKey:@"latitude"] doubleValue];
       loc.longitude  = [[adventure objectForKey:@"longitude"] doubleValue];
-      ////    
-      ////    // create an instance of bnrmappoint
-      NSString *subtitle = [NSString stringWithFormat:@"%@, %@   $%@ %@",
+
+      NSString *subtitle = [NSString stringWithFormat:@"%@, %@ $%@ %@",
                             [adventure objectForKey:@"city"], [adventure objectForKey:@"state"], [adventure objectForKey:@"price"], [adventure objectForKey:@"sold_out"]];
       LSMapPoint *mp = [[LSMapPoint alloc] initWithCoordinate:loc title:[adventure objectForKey:@"title"] subtitle:subtitle];
       mp.soldout = [[adventure objectForKey:@"sold_out"] boolValue];
@@ -60,6 +95,7 @@
     }
     [self.detailViewController.worldView addAnnotations:_adventures];
     self.detailViewController.allAdventures = [NSArray arrayWithArray:_adventures];
+    self.allAdventures = [NSArray arrayWithArray:_adventures];
   }
   
   [self.tableView reloadData];
@@ -78,7 +114,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-  self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
   self.navigationItem.rightBarButtonItem = addButton;
@@ -143,8 +178,8 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return NO;
+  // Return NO if you do not want the specified item to be editable.
+  return NO;
 }
 
 /*
